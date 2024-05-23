@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-catch */
-import conf from "../conf/conf";
+import conf from "../conf";
 
 import { Client, Account, ID } from "appwrite";
 
@@ -15,7 +15,6 @@ export class AuthService {
   }
 
   async createAccount({ email, password, name }) {
-    // eslint-disable-next-line no-useless-catch
     try {
       const userAccount = await this.account.create(
         ID.unique(),
@@ -35,7 +34,6 @@ export class AuthService {
   }
 
   async login({email, password}) {
-    // eslint-disable-next-line no-useless-catch
     try {
         return await this.account.createEmailSesstion(email, password);
     } catch (error) {
